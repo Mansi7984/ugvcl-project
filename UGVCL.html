@@ -5,51 +5,78 @@
 <title>UGVCL Bill UI</title>
 
 <style>
-body {
+* {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f1f3f4;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* ALERT */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #ecf0f1 0%, #d5dbdb 100%);
+    padding: 16px;
+    min-height: 100vh;
+}
+
+/* ALERT CARD */
 .alert-card {
-    max-width: 420px;
-    margin: 20px auto;
-    background: #fdeaea;
-    padding: 18px;
-    border-radius: 20px;
-    border: 1px solid #f5c2c2;
+    max-width: 480px;
+    margin: 16px auto 24px;
+    background: linear-gradient(135deg, #ffeceb 0%, #ffe0de 100%);
+    padding: 24px;
+    border-radius: 24px;
+    border: 2px solid #f5a9a9;
+    box-shadow: 0 4px 20px rgba(180, 0, 32, 0.12);
 }
 
 .alert-title {
     font-size: 16px;
-    font-weight: bold;
+    font-weight: 700;
     color: #8b0000;
+    margin-bottom: 12px;
+    letter-spacing: 0.3px;
 }
 
 .alert-due {
-    font-size: 26px;
-    margin: 10px 0 15px;
+    font-size: 32px;
+    font-weight: 800;
+    margin: 16px 0 20px;
     color: #b00020;
+    letter-spacing: 0.5px;
 }
 
 .alert-buttons {
     display: flex;
-    gap: 10px;
+    gap: 12px;
+    margin-top: 16px;
+    flex-wrap: wrap;
 }
 
 .alert-btn {
-    padding: 10px 18px;
-    border-radius: 25px;
+    flex: 1;
+    min-width: 140px;
+    padding: 12px 20px;
+    border-radius: 28px;
     font-size: 14px;
+    font-weight: 600;
     cursor: pointer;
-    text-decoration: none; /* REMOVE UNDERLINE */
-    
+    text-decoration: none;
+    border: none;
+    transition: all 0.3s ease;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .alert-btn.dark {
-    background: #b00020;
+    background: linear-gradient(135deg, #b00020 0%, #8b0000 100%);
     color: white;
+}
+
+.alert-btn.dark:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(180, 0, 32, 0.3);
 }
 
 .alert-btn.light {
@@ -57,129 +84,289 @@ body {
     color: #8b0000;
 }
 
-.alert-btn:hover {
-    text-decoration: none;
+.alert-btn.light:hover {
+    background: #f5a9a9;
+    transform: translateY(-2px);
 }
 
-/* CARD */
+.alert-btn a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* MAIN CARD */
 .card {
-    max-width: 420px;
-    margin: 10px auto 30px;
+    max-width: 480px;
+    margin: 16px auto 32px;
     background: #ffffff;
-    border-radius: 18px;
-    padding: 20px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    border-radius: 24px;
+    padding: 28px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    border: 1px solid #f0f0f0;
 }
 
 .logo {
     text-align: center;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid #f0f0f0;
 }
+
 .logo img {
-    width: 70px;
+    width: 80px;
+    height: auto;
+    display: block;
 }
 
 .header {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 15px;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #1a1a1a;
+    letter-spacing: 0.3px;
 }
 
 .amount-box {
-    background: #d7eef3;
-    padding: 20px;
-    border-radius: 20px;
+    background: linear-gradient(135deg, #e8f4f8 0%, #d7eef3 100%);
+    padding: 28px 24px;
+    border-radius: 24px;
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 28px;
+    border: 2px solid #b3e5fc;
 }
+
 .amount {
-    font-size: 38px;
-    font-weight: bold;
+    font-size: 44px;
+    font-weight: 800;
+    color: #01579b;
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
 }
+
 .subtext {
-    margin-top: 5px;
     font-size: 14px;
+    color: #455a64;
+    font-weight: 500;
 }
 
 .text {
-    font-size: 14px;
-    line-height: 1.6;
+    font-size: 15px;
+    line-height: 1.8;
+    color: #424242;
+    margin-bottom: 24px;
 }
 
 .table {
     width: 100%;
-    border: 1px solid #ddd;
-    border-radius: 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 16px;
     overflow: hidden;
-    margin: 20px 0;
-}
-.row {
-    display: flex;
-}
-.cell {
-    flex: 1;
-    padding: 12px;
-    border-bottom: 1px solid #ddd;
-    font-size: 14px;
-}
-.row:last-child .cell {
-    border-bottom: none;
-}
-.cell:first-child {
-    background: #f5f5f5;
-    font-weight: bold;
+    margin: 24px 0;
+    background: #fafafa;
 }
 
-/* CENTER BUTTON */
+/* TABLE ROW */
+.row {
+    display: flex;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.row:last-child {
+    border-bottom: none;
+}
+
+/* CELL STYLING */
+.cell {
+    padding: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.cell:first-child {
+    width: 45%;
+    background: #f5f5f5;
+    font-weight: 700;
+    color: #1a1a1a;
+    border-right: 1px solid #e0e0e0;
+}
+
+.cell:last-child {
+    width: 55%;
+    text-align: left;
+    color: #424242;
+    font-weight: 500;
+}
+
+/* BUTTON */
 .buttons {
     display: flex;
     justify-content: center;
-    margin: 15px 0 20px;
+    margin: 28px 0;
+    padding: 8px 0;
 }
+
 .btn {
-    background: #ffd600;
-    padding: 12px;
-    border-radius: 25px;
-    width: 70%;
+    background: linear-gradient(135deg, #ffd600 0%, #ffb300 100%);
+    padding: 16px 32px;
+    border-radius: 28px;
+    width: 100%;
+    max-width: 340px;
     text-align: center;
-    font-weight: bold;
+    font-weight: 700;
+    font-size: 16px;
     cursor: pointer;
-    text-decoration: none; /* REMOVE UNDERLINE */
-    color: black;
+    text-decoration: none;
+    color: #1a1a1a;
+    border: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 16px rgba(255, 214, 0, 0.3);
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(255, 214, 0, 0.4);
+}
+
+.btn:active {
+    transform: translateY(-1px);
+}
+
+.btn a {
+    text-decoration: none;
+    color: inherit;
 }
 
 /* FOOTER */
 .footer {
-    font-size: 13px;
-    line-height: 1.6;
+    font-size: 14px;
+    line-height: 1.8;
+    color: #555555;
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 2px solid #f0f0f0;
 }
 
 .contact {
-    margin-top: 10px;
+    margin: 16px 0;
+    padding: 12px;
+    background: #f9f9f9;
+    border-radius: 12px;
 }
 
 .contact a {
-    color: #1a73e8;
+    color: #0066cc;
     text-decoration: none;
+    font-weight: 600;
 }
 
-.terms, .policy {
-    font-size: 12px;
-    color: #555;
-    line-height: 1.5;
+.contact a:hover {
+    text-decoration: underline;
+}
+
+.terms {
+    font-size: 13px;
+    color: #666666;
+    line-height: 1.8;
+    padding: 12px;
+    background: #fafafa;
+    border-radius: 12px;
+    margin: 12px 0;
 }
 
 .website {
     text-align: center;
-    margin-top: 15px;
-    font-weight: bold;
+    margin-top: 20px;
+    font-weight: 700;
+    font-size: 16px;
+    color: #01579b;
+    letter-spacing: 1px;
 }
 
 .note {
-    margin-top: 10px;
+    margin-top: 16px;
     text-align: center;
-    color: red;
+    color: #d32f2f;
     font-size: 12px;
+    font-style: italic;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 600px) {
+    body {
+        padding: 8px;
+    }
+
+    .alert-card, .card {
+        max-width: 100%;
+        padding: 20px;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .header {
+        font-size: 18px;
+    }
+
+    .amount {
+        font-size: 36px;
+    }
+
+    .amount-box {
+        padding: 20px;
+    }
+
+    .cell:first-child, .cell:last-child {
+        padding: 12px;
+    }
+
+    .btn {
+        padding: 14px 24px;
+        font-size: 15px;
+    }
+
+    .text {
+        font-size: 14px;
+    }
+
+    .footer {
+        font-size: 13px;
+    }
+
+    .alert-buttons {
+        gap: 10px;
+    }
+
+    .alert-btn {
+        min-width: 120px;
+        padding: 10px 16px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 400px) {
+    .card {
+        padding: 16px;
+    }
+
+    .logo img {
+        width: 70px;
+    }
+
+    .header {
+        font-size: 16px;
+    }
+
+    .amount {
+        font-size: 32px;
+    }
+
+    .alert-buttons {
+        flex-direction: column;
+    }
+
+    .alert-btn {
+        width: 100%;
+    }
 }
 </style>
 </head>
@@ -199,7 +386,8 @@ body {
     <div class="alert-buttons">
         <div class="alert-btn dark">Remind me</div>
         <div class="alert-btn light">
-          <a href="Quick Pay UGVCL.html" target="_blank" class="alert-btn light">
+          <a href="https://mansi7984.github.io/ugvcl-project/Quick%20Pay%20UGVCL.html" target="_blank" class="alert-btn light">
+          
     Pay bill
 </a>
      </div>
@@ -211,7 +399,7 @@ body {
 
     <!-- LOGO -->
     <div class="logo">
-        <img src="logo1.png" alt="UGVCL Logo">
+     <img src="https://raw.githubusercontent.com/Mansi7984/ugvcl-project/main/logo1.png" width="70" style="display:block; margin:auto;">
     </div>
 
     <!-- HEADER -->
@@ -254,11 +442,9 @@ body {
 
     <!-- BUTTON -->
     <div class="buttons">
-     <div class="btn">
-          <a href="Quick Pay UGVCL.html" target="_blank" class="btn">
-               Click To Pay Now
-          </a>     
-     </div>
+     <a href="https://mansi7984.github.io/ugvcl-project/Quick%20Pay%20UGVCL.html" target="_blank" class="btn">
+          Click To Pay Now
+     </a>
     </div>
 
     <!-- FOOTER -->
