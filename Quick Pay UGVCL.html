@@ -15,9 +15,17 @@
 
 body {
     font-family: 'Noto Sans Gujarati', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
-    background: linear-gradient(135deg, #ecf0f1 0%, #d5dbdb 100%);
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
     min-height: 100vh;
     padding: 12px;
+}
+
+.main-container {
+    background: #f1e6ff;
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 550px;
+    border-radius: 24px;
 }
 
 /* TOP BAR */
@@ -82,8 +90,10 @@ body {
 /* CONTAINER */
 .container {
     max-width: 480px;
-    margin: 0 auto 24px;
-    padding: 12px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #f0f5ff;
+    border-radius: 24px;
 }
 
 /* CARD */
@@ -319,58 +329,62 @@ body {
 
 <body>
 
-<!-- TOP BAR -->
-<div class="topbar">
-    Quick Pay UGVCL
-</div>
+<div class="main-container">
 
-<!-- COMPANY HEADER WITH LOGO -->
-<div class="company-header">
-    <div class="company-card">
 
-        <div class="company-content">
-            <img src="logo1.png" class="company-logo">
+    <!-- TOP BAR -->
+    <div class="topbar">
+        Quick Pay UGVCL
+    </div>
 
-            <div class="company-text">
-                <b>UTTAR GUJARAT VIJ COMPANY LIMITED</b><br>
-                (UGVCL)
+    <!-- COMPANY HEADER WITH LOGO -->
+    <div class="company-header">
+        <div class="company-card">
+
+            <div class="company-content">
+                <img src="logo1.png" class="company-logo">
+
+                <div class="company-text">
+                    <b>UTTAR GUJARAT VIJ COMPANY LIMITED</b><br>
+                    (UGVCL)
+                </div>
             </div>
+
         </div>
+    </div>
+
+    <!-- MAIN -->
+    <div class="container">
+
+    <div class="card">
+
+    <div class="title">
+        Enter Consumer No.<br>
+        (ગ્રાહક નંબર દાખલ કરો.)
+    </div>
+
+    <input id="cno" class="input common"
+    placeholder="Enter 11 or 5 digit no. (૧૧ અથવા ૫ અંકનો નંબર દાખલ કરો)">
+
+    <!-- CAPTCHA -->
+    <div class="captcha-box common">
+        <canvas id="captchaCanvas"></canvas>
+    </div>
+
+    <input id="captchaInput" class="input common"
+    placeholder="Enter image as shown (ચિત્ર મુજબ દાખલ કરો)">
+
+    <button class="btn green common" onclick="check()">
+        Check Consumer No. (ગ્રાહક નંબર તપાસો)
+    </button>
+
+    <button class="btn red common" onclick="generateCaptcha()">
+        Reload (ફરીથી લોડ કરો)
+    </button>
 
     </div>
-</div>
 
-<!-- MAIN -->
-<div class="container">
-
-<div class="card">
-
-<div class="title">
-    Enter Consumer No.<br>
-    (ગ્રાહક નંબર દાખલ કરો.)
-</div>
-
-<input id="cno" class="input common"
-placeholder="Enter 11 or 5 digit no. (૧૧ અથવા ૫ અંકનો નંબર દાખલ કરો)">
-
-<!-- CAPTCHA -->
-<div class="captcha-box common">
-    <canvas id="captchaCanvas"></canvas>
-</div>
-
-<input id="captchaInput" class="input common"
-placeholder="Enter image as shown (ચિત્ર મુજબ દાખલ કરો)">
-
-<button class="btn green common" onclick="check()">
-    Check Consumer No. (ગ્રાહક નંબર તપાસો)
-</button>
-
-<button class="btn red common" onclick="generateCaptcha()">
-    Reload (ફરીથી લોડ કરો)
-</button>
-
-</div>
-
+    </div>
 </div>
 
 <script>
